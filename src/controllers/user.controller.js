@@ -5,7 +5,7 @@ import User from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 const registerUser=asyncHandler(async (req,res)=>{
      //extract information from frontend/postman
-     const {username,email,password}=req.body;
+     const {username,email,password,fullName}=req.body;
      console.log(username,email,password);
 
      //validation check
@@ -60,7 +60,7 @@ const registerUser=asyncHandler(async (req,res)=>{
         throw new ApiError(500,"Something went wrong while Registering user!!")
      }
 
-     return res.status(201).json(new ApiResponse(200,createdUser,"User Registered Successfully!!!"));
-    //  res.send("ok")
+     return res.json(new ApiResponse(200,createdUser,"User Registered Successfully!!!"));
+    
 });
 export {registerUser}
