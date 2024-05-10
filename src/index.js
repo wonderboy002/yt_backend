@@ -9,7 +9,7 @@ import connectDB from "./db/index.js";
 //allow express app to listen as soon as mongodb is connected
 connectDB()
   .then(() => {
-    app.listen(process.env.PORT || 3000, () => {
+    app.listen(process.env.PORT, () => {
       console.log(`Server functional at PORT ${process.env.PORT}`);
     });
   })
